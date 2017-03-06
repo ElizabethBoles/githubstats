@@ -1,0 +1,7 @@
+{
+  "name": "githubstats",
+  "dependencies": {
+    "node-fetch": "^1.6.3"
+  
+  }
+}
