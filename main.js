@@ -19,7 +19,8 @@ promise.then( function handleResponse(responseObj) {
         // In here, I know the request was successful
 
         responseObj.json().then( function printData(myUserData) {
-            console.log( myUserData.name );
+            console.log( myUserData );
+
 
         } );
 
@@ -29,4 +30,4 @@ promise.then( function handleResponse(responseObj) {
         console.log( 'There was a problem', responseObj.status );
     }
 
-} );
+});
