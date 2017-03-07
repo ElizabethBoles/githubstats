@@ -58,6 +58,25 @@ promise2.then( function repoResponse(response) {
 
         console.log(totalStarCount);
 
+        let promise3 = fetch(
+          'https://api.github.com/repos/' + userName + '/' + totalStarCount + '/contributors',
+          {
+              method: 'GET',
+              headers: {
+                  Authorization: 'token ' + process.argv[3]
+              }
+          }
+      );
+        promise3.then(function handleResponse(response) {
+          if (response.status > 199 && response.status < 300) {
+            response.json().then(function printFinalData(finalData) {
+              console.log(finalData);
+            });
+          } else {
+            console.log( 'There was a problem', response.status);
+          }
+        });
+
       });
     } else {
       console.log( 'There was a problem', response.status );
