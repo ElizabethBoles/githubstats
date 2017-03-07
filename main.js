@@ -46,10 +46,17 @@ promise2.then( function repoResponse(response) {
 
         let totalStarCount;
         let totalStarCountNumber = 0;
+        //established my variables that are empty
 
         reposData.forEach( function retrievesCount(repository) {
-          console.log(repository.stargazers_count, repository.name);
+          //console.log(repository.stargazers_count, repository.name);
+          if (repository.stargazers_count > totalStarCountNumber) {
+            totalStarCount = repository.name;
+            totalStarCountNumber = repository.stargazers_count;
+          }
         });
+
+        console.log(totalStarCount);
 
       });
     } else {
